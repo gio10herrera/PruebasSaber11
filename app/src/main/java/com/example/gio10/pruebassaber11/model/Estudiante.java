@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Estudiante implements Parcelable{
-    private String identificacion;
+    private int identificacion;
     private String nombre;
     private String apellido;
     private String colegio;
@@ -13,11 +13,11 @@ public class Estudiante implements Parcelable{
     private String ciudad;
     private double puntaje;
 
-    public String getIdentificacion() {
+    public int getIdentificacion() {
         return identificacion;
     }
 
-    public void setIdentificacion(String identificacion) {
+    public void setIdentificacion(int identificacion) {
         this.identificacion = identificacion;
     }
 
@@ -77,7 +77,7 @@ public class Estudiante implements Parcelable{
         this.puntaje = puntaje;
     }
 
-    public Estudiante(String id, String nom, String ape, String coleg, String tColeg, String dep, String ciud, double punt) {
+    public Estudiante(int id, String nom, String ape, String coleg, String tColeg, String dep, String ciud, double punt) {
         identificacion = id;
         nombre = nom;
         apellido = ape;
@@ -89,7 +89,7 @@ public class Estudiante implements Parcelable{
     }
 
     private Estudiante(Parcel in) {
-        identificacion = in.readString();
+        identificacion = in.readInt();
         nombre = in.readString();
         apellido = in.readString();
         colegio = in.readString();
@@ -106,7 +106,7 @@ public class Estudiante implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(identificacion);
+        parcel.writeInt(identificacion);
         parcel.writeString(nombre);
         parcel.writeString(apellido);
         parcel.writeString(colegio);
