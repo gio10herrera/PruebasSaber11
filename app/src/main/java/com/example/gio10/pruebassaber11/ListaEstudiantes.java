@@ -42,7 +42,7 @@ public class ListaEstudiantes extends AppCompatActivity {
             Toast.makeText(ListaEstudiantes.this,e.getMessage(),Toast.LENGTH_LONG).show();
         }
 
-        /*listado.setAdapter(adaptador);
+        listado.setAdapter(adaptador);
         close();
         listado.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -56,7 +56,7 @@ public class ListaEstudiantes extends AppCompatActivity {
                 //String cadena = p.getNombre() + " "  + p.getCapital() + " " + p.getContinente();
                 //Toast.makeText(ListaPaises.this,"Item seleccionado = " + i + "  " + cadena, Toast.LENGTH_LONG).show();
             }
-        });*/
+        });
     }
 
     public void llenar(Cursor c){
@@ -64,14 +64,14 @@ public class ListaEstudiantes extends AppCompatActivity {
         double puntaje;
         int id;
         while(c.moveToNext()){
-            id = Integer.parseInt(c.getString(0));
-            nombre = c.getString(1);
-            apellido = c.getString(2);
-            colegio = c.getString(3);
-            tColegio = c.getString(4);
-            dpto = c.getString(5);
-            ciudad = c.getString(6);
-            puntaje = Double.parseDouble(c.getString(7));
+            id = Integer.parseInt(c.getString(1));
+            nombre = c.getString(2);
+            apellido = c.getString(3);
+            colegio = c.getString(4);
+            tColegio = c.getString(5);
+            dpto = c.getString(6);
+            ciudad = c.getString(7);
+            puntaje = Double.parseDouble(c.getString(8));
 
             Estudiante e = new Estudiante(id,nombre,apellido,colegio,tColegio,dpto,ciudad,puntaje);
             estudiantes.add(e);

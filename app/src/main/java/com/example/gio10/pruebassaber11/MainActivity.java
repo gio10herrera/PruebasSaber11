@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
             dpto = (EditText) findViewById(R.id.txtDepartamento);
             ciudad = (EditText) findViewById(R.id.txtCiudad);
 
-            values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_IDENTIFICACION, id.getText().toString());
+            values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_IDENTIFICACION, Integer.parseInt(id.getText().toString()));
             values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_NOMBRE, nombre.getText().toString());
             values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_APELLIDO, apellido.getText().toString());
             values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_COLEGIO, colegio.getText().toString());
