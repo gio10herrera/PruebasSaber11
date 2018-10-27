@@ -10,26 +10,28 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gio10.pruebassaber11.model.DaoEstudiante;
+import com.example.gio10.pruebassaber11.model.Estudiante;
 import com.example.gio10.pruebassaber11.model.EstudianteDbHelper;
 
-public class MainActivity extends AppCompatActivity {
+public class Actualizar extends AppCompatActivity {
 
-    EditText id, nombre, apellido, colegio, dpto, ciudad;
+    TextView id, nom, cont;
+    EditText coleg, elDpto, laciudad;
     Spinner tipoColeg, pLectCrit, pMat, pSoc, pNatur, pIngles;
-    Button guardar, mostrar;
-
+    Button btnActualizar;
+    Estudiante e;
     EstudianteDbHelper basedatos;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_actualizar);
 
-        tipoColeg = findViewById(R.id.spinnerTipoColegio);
+        tipoColeg = findViewById(R.id.spinnerActTcolegio);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.textoTiposColegio, android.R.layout.simple_spinner_item);
@@ -38,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         // Apply the adapter to the spinner
         tipoColeg.setAdapter(adapter);
 
-        pLectCrit = findViewById(R.id.spinnerLCritica);
+        pLectCrit = findViewById(R.id.spinnerActLCritica);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapterLect = ArrayAdapter.createFromResource(this,
                 R.array.arrayPuntajes, android.R.layout.simple_spinner_item);
@@ -47,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         // Apply the adapter to the spinner
         pLectCrit.setAdapter(adapterLect);
 
-        pMat = findViewById(R.id.spinnerMatematicas);
+        pMat = findViewById(R.id.spinnerActMat);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapterMat = ArrayAdapter.createFromResource(this,
                 R.array.arrayPuntajes, android.R.layout.simple_spinner_item);
@@ -56,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         // Apply the adapter to the spinner
         pMat.setAdapter(adapterMat);
 
-        pSoc = findViewById(R.id.spinnerSociales);
+        pSoc = findViewById(R.id.spinnerActSoc);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapterSoc = ArrayAdapter.createFromResource(this,
                 R.array.arrayPuntajes, android.R.layout.simple_spinner_item);
@@ -65,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         // Apply the adapter to the spinner
         pSoc.setAdapter(adapterSoc);
 
-        pNatur = findViewById(R.id.spinnerNaturales);
+        pNatur = findViewById(R.id.spinnerActNat);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapterNat = ArrayAdapter.createFromResource(this,
                 R.array.arrayPuntajes, android.R.layout.simple_spinner_item);
@@ -74,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         // Apply the adapter to the spinner
         pNatur.setAdapter(adapterNat);
 
-        pIngles = findViewById(R.id.spinnerIngles);
+        pIngles = findViewById(R.id.spinnerActIngles);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapterIng = ArrayAdapter.createFromResource(this,
                 R.array.arrayPuntajes, android.R.layout.simple_spinner_item);
@@ -83,24 +85,63 @@ public class MainActivity extends AppCompatActivity {
         // Apply the adapter to the spinner
         pIngles.setAdapter(adapterIng);
 
-        guardar = (Button) findViewById(R.id.btnGuardar);
-        mostrar = (Button) findViewById(R.id.btnMostrar);
 
-        guardar.setOnClickListener(new View.OnClickListener() {
+        e = getIntent().getParcelableExtra("estudiante");
+        id = findViewById(R.id.txtTvActId);
+        nom = findViewById(R.id.txtTvActNombre);
+        id.setText("IDENTIFICACION: " + String.valueOf(e.getIdentificacion()).toUpperCase());
+        nom.setText("ESTUDIANTE: " + e.getNombre().toUpperCase() + " " + e.getApellido().toUpperCase());
+        btnActualizar = findViewById(R.id.btnActualizar2);
+        btnActualizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                guardar();
+                actualizar();
             }
         });
+    }
 
-        mostrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,ListaEstudiantes.class);
-                startActivity(i);
-            }
-        });
+    public void actualizar(){
+        abrir();
+        try {
+            SQLiteDatabase sqldata = basedatos.getWritableDatabase();
+            ContentValues values = new ContentValues();
+            coleg = (EditText) findViewById(R.id.txtActColegio);
+            elDpto = (EditText) findViewById(R.id.txtActDep);
+            laciudad = (EditText) findViewById(R.id.txtActCiudad);
 
+
+            values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_COLEGIO, coleg.getText().toString());
+            values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_DEPARTAMENTO, elDpto.getText().toString());
+            values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_CIUDAD, laciudad.getText().toString());
+            values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_PUNTAJE, puntaje());
+
+
+            sqldata.update(DaoEstudiante.EstudianteEntry.TABLE_NAME,values,DaoEstudiante.EstudianteEntry.COLUMN_NAME_IDENTIFICACION+"=?",new String[]{String.valueOf(e.getIdentificacion())});
+            Toast.makeText(this,"ACTUALIZACION EXITOSA", Toast.LENGTH_LONG).show();
+
+        }
+        catch (Exception e){
+            Toast.makeText(this,"Error al actualizar Datos", Toast.LENGTH_LONG).show();
+        }
+        close();
+
+        Intent i = new Intent(Actualizar.this,ListaEstudiantes.class);
+        startActivity(i);
+        finish();
+    }
+
+    public int puntaje(){
+        double punt = 0;
+        double puntajeLC = Double.parseDouble(pLectCrit.getSelectedItem().toString())*3;
+        double puntajeMat = Double.parseDouble(pMat.getSelectedItem().toString())*3;
+        double puntajeSoc = Double.parseDouble(pSoc.getSelectedItem().toString())*3;
+        double puntajeCienc = Double.parseDouble(pNatur.getSelectedItem().toString())*3;
+        double puntajeIng = Double.parseDouble(pIngles.getSelectedItem().toString());
+        punt = (puntajeLC + puntajeMat + puntajeSoc + puntajeCienc + puntajeIng)/13;
+        punt = punt*5;
+        int redondeado = Integer.parseInt(String.valueOf(Math.round(punt)));
+
+        return redondeado;
     }
 
     public void abrir(){
@@ -119,49 +160,5 @@ public class MainActivity extends AppCompatActivity {
         catch(Exception e){
             Toast.makeText(this,"Error al cerrar base datos", Toast.LENGTH_LONG).show();
         }
-    }
-
-    public void guardar(){
-        abrir();
-        try {
-            SQLiteDatabase sqldata = basedatos.getWritableDatabase();
-            ContentValues values = new ContentValues();
-            id = (EditText) findViewById(R.id.txtIdentificacion);
-            nombre = (EditText) findViewById(R.id.txtNombre);
-            apellido = (EditText) findViewById(R.id.txtApellido);
-            colegio = (EditText) findViewById(R.id.txtColegio);
-            dpto = (EditText) findViewById(R.id.txtDepartamento);
-            ciudad = (EditText) findViewById(R.id.txtCiudad);
-
-            values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_IDENTIFICACION, Integer.parseInt(id.getText().toString()));
-            values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_NOMBRE, nombre.getText().toString());
-            values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_APELLIDO, apellido.getText().toString());
-            values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_COLEGIO, colegio.getText().toString());
-            values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_TCOLEGIO, tipoColeg.getSelectedItem().toString());
-            values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_DEPARTAMENTO, dpto.getText().toString());
-            values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_CIUDAD, ciudad.getText().toString());
-            values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_PUNTAJE, puntaje());
-
-            long newRowId = sqldata.insert(DaoEstudiante.EstudianteEntry.TABLE_NAME, null, values);
-            Toast.makeText(this,"INSERCIÔN EXITOSA", Toast.LENGTH_LONG).show();
-            close();
-        }
-        catch (Exception e){
-            Toast.makeText(this,"Error al insertar Datos", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public int puntaje(){
-        double punt = 0;
-        double puntajeLC = Double.parseDouble(pLectCrit.getSelectedItem().toString())*3;
-        double puntajeMat = Double.parseDouble(pMat.getSelectedItem().toString())*3;
-        double puntajeSoc = Double.parseDouble(pSoc.getSelectedItem().toString())*3;
-        double puntajeCienc = Double.parseDouble(pNatur.getSelectedItem().toString())*3;
-        double puntajeIng = Double.parseDouble(pIngles.getSelectedItem().toString());
-        punt = (puntajeLC + puntajeMat + puntajeSoc + puntajeCienc + puntajeIng)/13;
-        punt = punt*5;
-        int redondeado = Integer.parseInt(String.valueOf(Math.round(punt)));
-
-        return redondeado;
     }
 }

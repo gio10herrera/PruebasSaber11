@@ -31,7 +31,7 @@ public final class DaoEstudiante {
                     EstudianteEntry.COLUMN_NAME_TCOLEGIO + " TEXT," +
                     EstudianteEntry.COLUMN_NAME_DEPARTAMENTO + " TEXT," +
                     EstudianteEntry.COLUMN_NAME_CIUDAD + " TEXT," +
-                    EstudianteEntry.COLUMN_NAME_PUNTAJE + " REAL)";
+                    EstudianteEntry.COLUMN_NAME_PUNTAJE + " INTEGER)";
 
     public static final String SQL_DELETE_ENTRIES =
             "DROP TABLE IF EXISTS " + EstudianteEntry.TABLE_NAME;

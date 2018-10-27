@@ -19,7 +19,8 @@
         </activity>
         <activity android:name=".AcercaDe" />
         <activity android:name=".ListaEstudiantes" />
-        <activity android:name=".DatosEstudiante"></activity>
+        <activity android:name=".DatosEstudiante" />
+        <activity android:name=".Actualizar"></activity>
     </application>
 
 </manifest>

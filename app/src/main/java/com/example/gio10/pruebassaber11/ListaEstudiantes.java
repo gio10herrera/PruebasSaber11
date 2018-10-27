@@ -61,7 +61,7 @@ public class ListaEstudiantes extends AppCompatActivity {
 
     public void llenar(Cursor c){
         String nombre, apellido, colegio, tColegio, dpto, ciudad;
-        double puntaje;
+        int puntaje;
         int id;
         while(c.moveToNext()){
             id = Integer.parseInt(c.getString(1));
@@ -71,10 +71,11 @@ public class ListaEstudiantes extends AppCompatActivity {
             tColegio = c.getString(5);
             dpto = c.getString(6);
             ciudad = c.getString(7);
-            puntaje = Double.parseDouble(c.getString(8));
+            puntaje = Integer.parseInt(c.getString(8));
 
             Estudiante e = new Estudiante(id,nombre,apellido,colegio,tColegio,dpto,ciudad,puntaje);
             estudiantes.add(e);
+
         }
     }
     public void abrir(){

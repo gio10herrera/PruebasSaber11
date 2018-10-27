@@ -18,6 +18,13 @@
     <string name="textoPuntSociales">PUNTAJE SOCIALES Y CIUDADANA</string>
     <string name="textoPuntNaturales">PUNTAJE CIENCIAS NATURALES</string>
     <string name="textoPuntIngles">PUNTAJE INGLES</string>
+    <string name="textoActualizar">ACTUALIZAR</string>
+    <string name="textoBorrar">BORRAR</string>
+    <string name="textoEstudianteSeleccionado">ESTUDIANTE SELECCIONADO</string>
+    <string name="textoActualizacion">ACTUALIZACION DE DATOS</string>
+    <string name="textoActColegio">COLEGIO ACTUAL</string>
+
+
 
     <string-array name="textoTiposColegio">
         <item>PRIVADO</item>

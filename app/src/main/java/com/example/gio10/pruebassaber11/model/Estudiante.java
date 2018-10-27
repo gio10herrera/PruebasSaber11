@@ -11,7 +11,7 @@ public class Estudiante implements Parcelable{
     private String tipoColegio;
     private String departament;
     private String ciudad;
-    private double puntaje;
+    private int puntaje;
 
     public int getIdentificacion() {
         return identificacion;
@@ -69,15 +69,15 @@ public class Estudiante implements Parcelable{
         this.ciudad = ciudad;
     }
 
-    public double getPuntaje() {
+    public int getPuntaje() {
         return puntaje;
     }
 
-    public void setPuntaje(double puntaje) {
+    public void setPuntaje(int puntaje) {
         this.puntaje = puntaje;
     }
 
-    public Estudiante(int id, String nom, String ape, String coleg, String tColeg, String dep, String ciud, double punt) {
+    public Estudiante(int id, String nom, String ape, String coleg, String tColeg, String dep, String ciud, int punt) {
         identificacion = id;
         nombre = nom;
         apellido = ape;
@@ -96,7 +96,7 @@ public class Estudiante implements Parcelable{
         tipoColegio = in.readString();
         departament = in.readString();
         ciudad = in.readString();
-        puntaje = in.readDouble();
+        puntaje = in.readInt();
     }
 
     @Override
@@ -113,7 +113,7 @@ public class Estudiante implements Parcelable{
         parcel.writeString(tipoColegio);
         parcel.writeString(departament);
         parcel.writeString(ciudad);
-        parcel.writeDouble(puntaje);
+        parcel.writeInt(puntaje);
     }
 
     public static final Parcelable.Creator<Estudiante> CREATOR
