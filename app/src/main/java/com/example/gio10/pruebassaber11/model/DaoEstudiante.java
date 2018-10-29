@@ -22,7 +22,7 @@ public final class DaoEstudiante {
     }
 
     public static final String SQL_CREATE_ENTRIES =
-            "CREATE TABLE " + EstudianteEntry.TABLE_NAME + " (" +
+            /*"CREATE TABLE " + EstudianteEntry.TABLE_NAME + " (" +
                     EstudianteEntry._ID + " INTEGER PRIMARY KEY," +
                     EstudianteEntry.COLUMN_NAME_IDENTIFICACION + " INTEGER," +
                     EstudianteEntry.COLUMN_NAME_NOMBRE + " TEXT," +
@@ -31,7 +31,19 @@ public final class DaoEstudiante {
                     EstudianteEntry.COLUMN_NAME_TCOLEGIO + " TEXT," +
                     EstudianteEntry.COLUMN_NAME_DEPARTAMENTO + " TEXT," +
                     EstudianteEntry.COLUMN_NAME_CIUDAD + " TEXT," +
-                    EstudianteEntry.COLUMN_NAME_PUNTAJE + " INTEGER)";
+                    EstudianteEntry.COLUMN_NAME_PUNTAJE + " INTEGER)";*/
+            "CREATE TABLE " + EstudianteEntry.TABLE_NAME + " (" +
+                    EstudianteEntry._ID + " INTEGER PRIMARY KEY," +
+                    EstudianteEntry.COLUMN_NAME_IDENTIFICACION + " INTEGER NOT NULL," +
+                    EstudianteEntry.COLUMN_NAME_NOMBRE + " TEXT," +
+                    EstudianteEntry.COLUMN_NAME_APELLIDO + " TEXT," +
+                    EstudianteEntry.COLUMN_NAME_COLEGIO + " TEXT," +
+                    EstudianteEntry.COLUMN_NAME_TCOLEGIO + " TEXT," +
+                    EstudianteEntry.COLUMN_NAME_DEPARTAMENTO + " TEXT," +
+                    EstudianteEntry.COLUMN_NAME_CIUDAD + " TEXT," +
+                    EstudianteEntry.COLUMN_NAME_PUNTAJE + " INTEGER," +
+                    "CONSTRAINT name_unique UNIQUE (" + EstudianteEntry.COLUMN_NAME_IDENTIFICACION + "))";
+
 
     public static final String SQL_DELETE_ENTRIES =
             "DROP TABLE IF EXISTS " + EstudianteEntry.TABLE_NAME;
