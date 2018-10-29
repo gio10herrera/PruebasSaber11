@@ -16,7 +16,7 @@
             android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ecedeb"
+            android:background="#9DD4FF"
             android:gravity="center_vertical|center_horizontal"
             android:text="@string/textoActualizacion"
             android:textSize="22sp"
@@ -26,13 +26,14 @@
             android:id="@+id/textView7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="------------------------------------------------------------------------------------------" />
+            android:text="-------------------------------------------------------------------"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtTvActId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ecedeb"
+            android:background="#9DD4FF"
             android:gravity="center_vertical|center_horizontal"
             android:text="TextView"
             android:textSize="18sp" />
@@ -41,7 +42,7 @@
             android:id="@+id/txtTvActNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ecedeb"
+            android:background="#9DD4FF"
             android:gravity="center_vertical|center_horizontal"
             android:text="TextView"
             android:textSize="18sp" />
@@ -52,13 +53,14 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/textoActColegio"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColor="#FB4F79" />
 
         <TextView
             android:id="@+id/textView11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ecedeb"
+            android:background="#9DD4FF"
             android:gravity="center_horizontal|center"
             android:text="@string/textoTColegioEst"
             android:textAppearance="@style/TextAppearance.Widget.AppCompat.ExpandedMenu.Item"
@@ -76,7 +78,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/textoDepartamentoEst"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColor="#FB4F79" />
 
         <EditText
             android:id="@+id/txtActCiudad"
@@ -84,14 +87,15 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/textoCiudadEst"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColor="#FB4F79" />
 
 
         <TextView
             android:id="@+id/textView14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ecedeb"
+            android:background="#9DD4FF"
             android:gravity="center_horizontal|center"
             android:text="@string/textoPuntLecturaCritica"
             android:textAppearance="@style/TextAppearance.Widget.AppCompat.ExpandedMenu.Item"
@@ -107,7 +111,7 @@
             android:id="@+id/textView15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ecedeb"
+            android:background="#9DD4FF"
             android:gravity="center_horizontal|center"
             android:text="@string/textoPuntMatematicas"
             android:textAppearance="@style/TextAppearance.Widget.AppCompat.ExpandedMenu.Item"
@@ -123,7 +127,7 @@
             android:id="@+id/textView16"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ecedeb"
+            android:background="#9DD4FF"
             android:gravity="center_horizontal|center"
             android:text="@string/textoPuntSociales"
             android:textAppearance="@style/TextAppearance.Widget.AppCompat.ExpandedMenu.Item"
@@ -139,7 +143,7 @@
             android:id="@+id/textView17"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ecedeb"
+            android:background="#9DD4FF"
             android:gravity="center_horizontal|center"
             android:text="@string/textoPuntNaturales"
             android:textAppearance="@style/TextAppearance.Widget.AppCompat.ExpandedMenu.Item"
@@ -155,7 +159,7 @@
             android:id="@+id/textView18"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ecedeb"
+            android:background="#9DD4FF"
             android:gravity="center_horizontal|center"
             android:text="@string/textoPuntIngles"
             android:textAppearance="@style/TextAppearance.Widget.AppCompat.ExpandedMenu.Item"
@@ -171,11 +175,12 @@
             android:id="@+id/textView13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="------------------------------------------------------------------------------------------" />
+            android:text="-------------------------------------------------------------------"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btnActualizar2"
-            style="@android:style/Widget.Button.Toggle"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"

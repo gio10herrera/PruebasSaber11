@@ -23,6 +23,8 @@
     <string name="textoEstudianteSeleccionado">ESTUDIANTE SELECCIONADO</string>
     <string name="textoActualizacion">ACTUALIZACION DE DATOS</string>
     <string name="textoActColegio">COLEGIO ACTUAL</string>
+    <string name="textoPuntaje">PUNTAJE</string>
+    <string name="textoId">ID</string>
 
 
 

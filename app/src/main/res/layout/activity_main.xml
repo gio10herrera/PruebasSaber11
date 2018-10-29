@@ -18,7 +18,8 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="@string/textoIdentificacion"
-            android:inputType="text" />
+            android:inputType="text"
+            android:textColor="#FB4F79" />
 
         <EditText
             android:id="@+id/txtNombre"
@@ -27,7 +28,8 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="@string/textoNombreEst"
-            android:inputType="text" />
+            android:inputType="text"
+            android:textColor="#FB4F79" />
 
         <EditText
             android:id="@+id/txtApellido"
@@ -36,7 +38,8 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="@string/textoApellidoEst"
-            android:inputType="text" />
+            android:inputType="text"
+            android:textColor="#FB4F79" />
 
         <EditText
             android:id="@+id/txtDepartamento"
@@ -45,7 +48,8 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="@string/textoDepartamentoEst"
-            android:inputType="text" />
+            android:inputType="text"
+            android:textColor="#FB4F79" />
 
         <EditText
             android:id="@+id/txtCiudad"
@@ -54,7 +58,8 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="@string/textoCiudadEst"
-            android:inputType="text" />
+            android:inputType="text"
+            android:textColor="#FB4F79" />
 
         <EditText
             android:id="@+id/txtColegio"
@@ -63,14 +68,15 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="@string/textoColegioEst"
-            android:inputType="text" />
+            android:inputType="text"
+            android:textColor="#FB4F79" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="#ecedeb"
+            android:background="#9DD4FF"
             android:gravity="center_horizontal|center"
             android:text="@string/textoTColegioEst"
             android:textAppearance="@style/TextAppearance.Widget.AppCompat.ExpandedMenu.Item"
@@ -89,7 +95,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="#ecedeb"
+            android:background="#9DD4FF"
             android:gravity="center_horizontal|center"
             android:text="@string/textoPuntLecturaCritica"
             android:textAppearance="@style/TextAppearance.Widget.AppCompat.ExpandedMenu.Item"
@@ -108,7 +114,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="#ecedeb"
+            android:background="#9DD4FF"
             android:gravity="center_horizontal|center"
             android:text="@string/textoPuntMatematicas"
             android:textAppearance="@style/TextAppearance.Widget.AppCompat.ExpandedMenu.Item"
@@ -126,7 +132,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="#ecedeb"
+            android:background="#9DD4FF"
             android:gravity="center_horizontal|center"
             android:text="@string/textoPuntSociales"
             android:textAppearance="@style/TextAppearance.Widget.AppCompat.ExpandedMenu.Item"
@@ -144,7 +150,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="#ecedeb"
+            android:background="#9DD4FF"
             android:gravity="center_horizontal|center"
             android:text="@string/textoPuntNaturales"
             android:textAppearance="@style/TextAppearance.Widget.AppCompat.ExpandedMenu.Item"
@@ -162,7 +168,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="#ecedeb"
+            android:background="#9DD4FF"
             android:gravity="center_horizontal|center"
             android:text="@string/textoPuntIngles"
             android:textAppearance="@style/TextAppearance.Widget.AppCompat.ExpandedMenu.Item"
@@ -177,6 +183,7 @@
 
         <Button
             android:id="@+id/btnGuardar"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -184,6 +191,7 @@
 
         <Button
             android:id="@+id/btnMostrar"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"

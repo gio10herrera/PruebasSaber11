@@ -110,9 +110,9 @@ public class Actualizar extends AppCompatActivity {
             laciudad = (EditText) findViewById(R.id.txtActCiudad);
 
 
-            values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_COLEGIO, coleg.getText().toString());
-            values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_DEPARTAMENTO, elDpto.getText().toString());
-            values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_CIUDAD, laciudad.getText().toString());
+            values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_COLEGIO, coleg.getText().toString().toUpperCase());
+            values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_DEPARTAMENTO, elDpto.getText().toString().toUpperCase());
+            values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_CIUDAD, laciudad.getText().toString().toUpperCase());
             values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_PUNTAJE, puntaje());
 
 

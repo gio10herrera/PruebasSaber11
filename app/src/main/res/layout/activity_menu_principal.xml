@@ -9,7 +9,7 @@
 
     <Button
         android:id="@+id/btnAplicacion"
-        style="@android:style/Widget.Button.Toggle"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -19,7 +19,7 @@
 
     <Button
         android:id="@+id/btnAcercaDe"
-        style="@android:style/Widget.Button.Toggle"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"

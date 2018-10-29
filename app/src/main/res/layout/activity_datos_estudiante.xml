@@ -11,7 +11,7 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ecedeb"
+        android:background="#9DD4FF"
         android:gravity="center_vertical|center_horizontal"
         android:text="@string/textoEstudianteSeleccionado"
         android:textSize="22sp"
@@ -21,24 +21,27 @@
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="------------------------------------------------------------------------------------------" />
+        android:text="-------------------------------------------------------------------"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/txtViewDatosEstudiante"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:textColor="#FB4F79"
         android:textSize="24sp" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="------------------------------------------------------------------------------------------" />
+        android:text="-------------------------------------------------------------------"
+        android:textStyle="bold"/>
 
     <Button
         android:id="@+id/btnActualizar"
-        style="@android:style/Widget.Button.Toggle"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -48,7 +51,7 @@
 
     <Button
         android:id="@+id/btnBorrar"
-        style="@android:style/Widget.Button.Toggle"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"

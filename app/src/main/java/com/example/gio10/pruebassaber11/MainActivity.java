@@ -5,11 +5,14 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gio10.pruebassaber11.model.DaoEstudiante;
@@ -90,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 guardar();
+                limpiarEditText();
             }
         });
 
@@ -101,6 +105,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void limpiarEditText(){
+        id.setText("");
+        nombre.setText("");
+        apellido.setText("");
+        colegio.setText("");
+        dpto.setText("");
+        ciudad.setText("");
     }
 
     public void abrir(){
@@ -133,13 +146,14 @@ public class MainActivity extends AppCompatActivity {
             dpto = (EditText) findViewById(R.id.txtDepartamento);
             ciudad = (EditText) findViewById(R.id.txtCiudad);
 
+
             values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_IDENTIFICACION, Integer.parseInt(id.getText().toString()));
-            values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_NOMBRE, nombre.getText().toString());
-            values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_APELLIDO, apellido.getText().toString());
-            values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_COLEGIO, colegio.getText().toString());
+            values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_NOMBRE, nombre.getText().toString().toUpperCase());
+            values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_APELLIDO, apellido.getText().toString().toUpperCase());
+            values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_COLEGIO, colegio.getText().toString().toUpperCase());
             values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_TCOLEGIO, tipoColeg.getSelectedItem().toString());
-            values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_DEPARTAMENTO, dpto.getText().toString());
-            values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_CIUDAD, ciudad.getText().toString());
+            values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_DEPARTAMENTO, dpto.getText().toString().toUpperCase());
+            values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_CIUDAD, ciudad.getText().toString().toUpperCase());
             values.put(DaoEstudiante.EstudianteEntry.COLUMN_NAME_PUNTAJE, puntaje());
 
             long newRowId = sqldata.insert(DaoEstudiante.EstudianteEntry.TABLE_NAME, null, values);
@@ -150,6 +164,8 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this,"Error al insertar Datos", Toast.LENGTH_LONG).show();
         }
     }
+
+
 
     public int puntaje(){
         double punt = 0;
